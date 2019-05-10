@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: kanbahnpostgresdev
+    image: postgres:9.6
+    environment:
+      POSTGRES_DB: kanbahndbdev
+      POSTGRES_USER: kanbahnapp
+      POSTGRES_PASSWORD: finalkoira
+    ports:
+      - "2345:5432"
+    restart: unless-stopped

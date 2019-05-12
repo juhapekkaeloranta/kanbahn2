@@ -4,13 +4,9 @@ import { getJSON } from './fetch'
 import { receiveTasks } from './store/taskReducer'
 import { StoreState } from './store/store'
 import { connect } from 'react-redux'
-import { Task } from '../src-common/entity/Task';
-import TodoList from './components/TodoList';
-import AddTaskButton from './components/AddTaskButton';
-import Header from './components/Header';
+import BoardContainer from './components/BoardContainer';
 
 interface AppStoreProps {
-  tasks: any
 }
 
 interface DispatchProps {
@@ -27,17 +23,14 @@ const App = (props: Props) => {
 
   return (
     <div>
-      <Header/>
-      <TodoList/>
-      <AddTaskButton/>
+      <p>Kanbahn-app</p>
+      <BoardContainer/>
     </div> 
   )
 }
 
 const mapStateToProps = (state: StoreState) => {
-  return {
-    tasks: state.tasks
-  }
+  return {}
 }
 
 const mapDispatchToProps = {

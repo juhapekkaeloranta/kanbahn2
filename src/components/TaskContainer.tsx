@@ -1,49 +1,36 @@
 import React from 'react'
-import { Task } from '../../src-common/entity/Task';
-import { StoreState } from '../store/store';
+import TaskComponent from './TaskComponent';
 import { connect } from 'react-redux';
-import './styles/TaskContainer.css';
+import { StoreState } from '../store/store';
 
 interface TaskContainerOwnProps {
-  taskid: number
-}
-
-interface TaskContainerDispatchProps {
+  id: string
 }
 
 interface TaskContainerStoreProps {
-  task: Task
+  text: string
 }
-
-type TaskContainerProps =
-  TaskContainerOwnProps &
-  TaskContainerDispatchProps &
-  TaskContainerStoreProps
+type TaskContainerProps = TaskContainerOwnProps & TaskContainerStoreProps
 
 const TaskContainer = (props: TaskContainerProps) => {
-
-  const task = props.task
-
   return (
-    <div className={`todo-standard-box TaskContainer`}>
-      <div className='row-group'>
-      </div>
-
-      <div className={`column-group growing`}>
-        <p>{task.title}</p>
-      </div>
-
-    </div>
+    <TaskComponent
+      key={props.id}
+      id={props.id}
+      text={props.id} //TODO: text from store
+    />
   )
 }
 
-const mapStateToProps = (state: StoreState, ownProps: TaskContainerOwnProps) => {
+const mapStateToProps = (state: StoreState) => {
   return {
-    task: state.tasks.byid[ownProps.taskid]
+    text: ''//TODO
   }
 }
 
 const mapDispatchToProps = {
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskContainer)
+const connectedTaskContainer = connect(mapStateToProps, mapDispatchToProps)(TaskContainer)
+
+export default connectedTaskContainer

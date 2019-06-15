@@ -31,6 +31,4 @@ const mapStateToProps = (state: StoreState, ownProps: TaskContainerOwnProps) => 
 const mapDispatchToProps = {
 }
 
-const connectedTaskContainer = connect(mapStateToProps, mapDispatchToProps)(TaskContainer)
-
-export default connectedTaskContainer
+export default connect(mapStateToProps, mapDispatchToProps)(TaskContainer)

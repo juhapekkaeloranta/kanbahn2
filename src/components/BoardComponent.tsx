@@ -1,24 +1,19 @@
 import React from 'react';
-import LaneContainer from './LaneContainer';
 
 interface BoardComponentOwnProps {
+  children: any //List of LaneContainers
   id: number
   name: string
-  laneids: number[]
 }
 
 type BoardComponentProps = BoardComponentOwnProps
 
 const BoardComponent = (props: BoardComponentProps) => {
+  const lanes = props.children
   return (
     <div>
       <p>This is a Board called: {props.name}</p>
-      {props.laneids.map(laneid =>
-        <LaneContainer
-          key={laneid}
-          id={laneid}
-        />
-      )}
+      {lanes}
     </div>
   )
 }

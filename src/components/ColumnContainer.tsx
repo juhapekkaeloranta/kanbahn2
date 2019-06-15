@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { StoreState } from '../store/store';
 import ColumnComponent from './ColumnComponent';
 import { Task } from '../../src-common/entity/Task';
+import TaskContainer from './TaskContainer';
 
 interface ColumnContainerOwnProps {
   id: number
@@ -21,8 +22,14 @@ const ColumnContainer = (props: ColumnContainerProps) => {
       key={props.id}
       id={props.id}
       title={props.name}
-      taskids={props.taskids}
-    />
+    >
+      {props.taskids.map(taskid => 
+        <TaskContainer
+          key={taskid}
+          id={taskid}
+        />
+      )}
+    </ColumnComponent>
   )
 }
 
@@ -39,6 +46,4 @@ const mapStateToProps = (state: StoreState, ownProps: ColumnContainerOwnProps) =
 
 const mapDispatchToProps = {}
 
-const connectedColumnContainer = connect(mapStateToProps, mapDispatchToProps)(ColumnContainer)
-
-export default connectedColumnContainer
+export default connect(mapStateToProps, mapDispatchToProps)(ColumnContainer)

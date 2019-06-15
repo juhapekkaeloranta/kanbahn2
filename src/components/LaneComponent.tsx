@@ -1,27 +1,21 @@
 import React from 'react'
-import ColumnContainer from './ColumnContainer'
 import './styles/common.css'
 
 interface LaneOwnProps {
+  children: any, //List of ColumnContainers
   title: string,
-  columnids: number[]
 }
 
 type LaneProps = LaneOwnProps
 
 const LaneComponent = ( props: LaneProps ) => {
-
+  const columns = props.children
   return (
     <div className='bordered'>
       <br/>
       <p>{props.title}</p>
       <div className="ColumnContainer">
-        {props.columnids.map(columnid =>
-          <ColumnContainer
-            key={columnid}
-            id={columnid}
-          />
-        )}
+        {columns}
       </div>
     </div>
   )

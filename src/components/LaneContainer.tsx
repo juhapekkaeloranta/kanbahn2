@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LaneComponent from './LaneComponent';
 import { StoreState } from '../store/store';
+import ColumnContainer from './ColumnContainer';
 
 interface LaneContainerOwnProps {
   id: number
@@ -19,8 +20,14 @@ const LaneContainer = (props: LaneContainerProps) => {
   return (
     <LaneComponent
       title={"Feature: " + props.name}
-      columnids={props.columnids}
-    />
+    >
+      {props.columnids.map(columnid =>
+        <ColumnContainer
+          key={columnid}
+          id={columnid}
+        />
+      )}
+    </LaneComponent>
   )
 }
 
@@ -36,6 +43,4 @@ const mapStateToProps = (state: StoreState, ownProps: LaneContainerOwnProps) => 
 const mapDispatchToProps = {
 }
 
-const ConnectedLaneContainer = connect(mapStateToProps, mapDispatchToProps)(LaneContainer)
-
-export default ConnectedLaneContainer
+export default connect(mapStateToProps, mapDispatchToProps)(LaneContainer)

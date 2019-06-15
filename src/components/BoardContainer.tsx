@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { StoreState } from '../store/store';
 import BoardComponent from './BoardComponent';
+import LaneContainer from './LaneContainer';
 
 interface BoardContainerOwnProps {
 }
@@ -19,8 +20,14 @@ const BoardContainer = (props: BoardContainerProps) => {
     <BoardComponent 
       id={props.activeBoardId}
       name={props.name}
-      laneids={props.laneids}
-    />
+    >
+      {props.laneids.map(laneid =>
+        <LaneContainer
+          key={laneid}
+          id={laneid}
+        />
+      )}
+    </BoardComponent>
   )
 }
 

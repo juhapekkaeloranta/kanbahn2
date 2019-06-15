@@ -46,15 +46,15 @@ VALUES
 (1, 'Feature 1', 1);
 
 --Lists
-INSERT INTO list ("id", "name", "laneId", "lane")
+INSERT INTO list ("id", "name", "lane")
 VALUES
-(1, 'Todo', 1, 'Feature 1'),
-(2, 'In progress', 1, 'Feature 1'),
-(3, 'Done', 1, 'Feature 1');
+(1, 'Todo', 1),
+(2, 'In progress', 1),
+(3, 'Done', 1);
 
 --Tasks
 
-INSERT INTO task ("id", "title", "sortindex", "listId")
+INSERT INTO task ("id", "title", "sortindex", "list")
 VALUES
 (1, 'Tests', 1, 1),
 (2, 'APIs', 2, 1),

@@ -101,8 +101,7 @@ ALTER TABLE public.lane OWNER TO kanbahnapp;
 CREATE TABLE public.list (
     id integer NOT NULL,
     name character varying NOT NULL,
-    lane character varying NOT NULL,
-    "laneId" integer
+    lane integer
 );
 
 
@@ -143,39 +142,11 @@ CREATE TABLE public.task (
     id integer NOT NULL,
     title character varying NOT NULL,
     sortindex integer NOT NULL,
-    "listId" integer NOT NULL
+    list integer NOT NULL
 );
 
 
 ALTER TABLE public.task OWNER TO kanbahnapp;
-
---
--- TOC entry 193 (class 1259 OID 16567)
--- Name: flatall; Type: VIEW; Schema: public; Owner: kanbahnapp
---
-
-CREATE VIEW public.flatall AS
- SELECT p.id AS project_id,
-    o."userGoogleId" AS owner_id,
-    p.name AS project_name,
-    b.name AS board_name,
-    b.id AS board_id,
-    l.name AS lane_name,
-    l.id AS lane_id,
-    c.name AS column_name,
-    c.id AS column_id,
-    t.title AS task_title,
-    t.id AS task_id,
-    t.sortindex AS task_index
-   FROM (((((public.project p
-     LEFT JOIN public.project_owners_user o ON ((p.id = o."projectId")))
-     LEFT JOIN public.board b ON ((p.id = b."projectId")))
-     LEFT JOIN public.lane l ON ((b.id = l."boardId")))
-     LEFT JOIN public.list c ON ((l.id = c."laneId")))
-     LEFT JOIN public.task t ON ((c.id = t."listId")));
-
-
-ALTER TABLE public.flatall OWNER TO kanbahnapp;
 
 --
 -- TOC entry 188 (class 1259 OID 16426)
@@ -430,7 +401,7 @@ ALTER TABLE ONLY public.project_owners_user
 --
 
 ALTER TABLE ONLY public.task
-    ADD CONSTRAINT "FK_d2275fe92da6a114d70796b7344" FOREIGN KEY ("listId") REFERENCES public.list(id) ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_d2275fe92da6a114d70796b7344" FOREIGN KEY ("list") REFERENCES public.list(id) ON DELETE CASCADE;
 
 
 --
@@ -439,7 +410,7 @@ ALTER TABLE ONLY public.task
 --
 
 ALTER TABLE ONLY public.list
-    ADD CONSTRAINT "FK_dd36bbcf6b3d188fe3d11958324" FOREIGN KEY ("laneId") REFERENCES public.lane(id) ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_dd36bbcf6b3d188fe3d11958324" FOREIGN KEY ("lane") REFERENCES public.lane(id) ON DELETE CASCADE;
 
 
 --

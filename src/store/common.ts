@@ -1,9 +1,5 @@
 import { logger_info } from '../loggers';
-import { Task } from '../../src-common/entity/Task';
-
-interface Tables {
-  tasks: Task[]
-}
+import { Tables } from '../../src-common/entity/Combined';
 
 export interface ReceiveState {
   type: 'RECEIVE-STATE'

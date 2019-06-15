@@ -6,6 +6,7 @@ import { StoreState } from './store/store'
 import { connect } from 'react-redux'
 import BoardContainer from './components/BoardContainer';
 import { receiveState } from './store/common';
+import TopMenu from './components/TopMenu';
 
 interface AppStoreProps {
 }
@@ -27,7 +28,7 @@ const App = (props: Props) => {
 
   return (
     <div>
-      <p>Kanbahn-app</p>
+      <TopMenu />
       <BoardContainer/>
     </div> 
   )

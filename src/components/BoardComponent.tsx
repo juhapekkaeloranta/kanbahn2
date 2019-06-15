@@ -12,7 +12,6 @@ const BoardComponent = (props: BoardComponentProps) => {
   const lanes = props.children
   return (
     <div>
-      <p>This is a Board called: {props.name}</p>
       {lanes}
     </div>
   )

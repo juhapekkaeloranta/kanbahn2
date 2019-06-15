@@ -4,3 +4,65 @@
   margin: 5px;
   padding: 5px;
 }
+
+.hide-border {
+  border: none;
+}
+
+.lane {
+  width: auto;
+}
+
+.topmenu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  position: relative;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+}
+
+.columnHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 40px;
+  width: 100%
+}
+
+.columnContainerWrapper {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.taskContainerWrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.laneHeader {
+  justify-content: space-between;
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+.task {
+  padding: 10px;
+  margin: 4px;
+  width: 100%;
+  min-width: 175px;
+}

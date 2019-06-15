@@ -11,10 +11,11 @@ type LaneProps = LaneOwnProps
 const LaneComponent = ( props: LaneProps ) => {
   const columns = props.children
   return (
-    <div className='bordered'>
-      <br/>
-      <p>{props.title}</p>
-      <div className="ColumnContainer">
+    <div className='lane bordered'>
+      <div className="laneHeader">
+        <p>{props.title}</p>
+      </div>
+      <div className="columnContainerWrapper">
         {columns}
       </div>
     </div>

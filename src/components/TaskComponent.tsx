@@ -10,8 +10,8 @@ type TaskComponentProps = TaskComponentOwnProps
 
 const TaskComponent = (props: TaskComponentProps) => {
   return (
-    <div className='bordered'>
-      <p>Task: {props.text}</p>
+    <div className='task bordered'>
+      <p>{props.text}</p>
     </div>
   )
 }

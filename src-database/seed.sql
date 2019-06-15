@@ -63,4 +63,9 @@ VALUES
 (1, 'Tests', 1, 1),
 (2, 'APIs', 2, 1),
 (3, 'UI code', 1, 2),
-(4, 'SQL code', 1, 3);
+(4, 'SQL code', 1, 3),
+(5, 'Drag-n-drop', 1, 1),
+(6, 'End-points for CRUD operations', 2, 4),
+(7, 'Better styling', 1, 4),
+(8, 'Buttons and UI for CRUD operations', 3, 4),
+(9, 'Show well formatted state in a crude UI', 1, 6);

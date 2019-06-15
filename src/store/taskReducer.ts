@@ -1,13 +1,14 @@
 import { Task, TasksById } from '../../src-common/entity/Task'
 import { arrayToByIdObject } from '../helpers'
 import { logger_info } from '../loggers';
+import { ReceiveState } from './common';
 
 interface ReceiveTasks {
   type: 'RECEIVE-TASKS'
   tasks: Task[]
 }
 
-type TaskAction = ReceiveTasks
+type TaskAction = ReceiveTasks | ReceiveState
 
 export type TasksState = TasksById
 
@@ -19,6 +20,12 @@ const taskReducer = (state: TasksState = emptyState, action: TaskAction) => {
     case 'RECEIVE-TASKS':
       return {
         byid: arrayToByIdObject(action.tasks)
+      }
+
+    // Common receiveState action, pick only 'tasks' from it
+    case 'RECEIVE-STATE':
+      return {
+        byid: arrayToByIdObject(action.state.tasks)
       }
 
     default:

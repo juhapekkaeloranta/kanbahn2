@@ -5,12 +5,14 @@ import { receiveTasks } from './store/taskReducer'
 import { StoreState } from './store/store'
 import { connect } from 'react-redux'
 import BoardContainer from './components/BoardContainer';
+import { receiveState, ReceiveState } from './store/common';
 
 interface AppStoreProps {
 }
 
 interface DispatchProps {
   receiveTasks: typeof receiveTasks
+  receiveState: typeof receiveState
 }
 
 type Props = AppStoreProps & DispatchProps
@@ -19,6 +21,7 @@ const App = (props: Props) => {
 
   useEffect(() => {
     getJSON('/api/v1/tasks').then(response => props.receiveTasks(response.tasks)).catch(() => undefined)
+    getJSON('/api/v1/state').then(response => props.receiveState(response.state)).catch(() => undefined)
   }, [])
 
   return (
@@ -34,7 +37,8 @@ const mapStateToProps = (state: StoreState) => {
 }
 
 const mapDispatchToProps = {
-  receiveTasks
+  receiveTasks,
+  receiveState
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

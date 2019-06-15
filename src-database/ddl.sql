@@ -87,7 +87,7 @@ ALTER SEQUENCE public.board_id_seq OWNED BY public.board.id;
 CREATE TABLE public.lane (
     id integer NOT NULL,
     name character varying NOT NULL,
-    "boardId" integer
+    board integer
 );
 
 
@@ -383,7 +383,7 @@ ALTER TABLE ONLY public.board
 --
 
 ALTER TABLE ONLY public.lane
-    ADD CONSTRAINT "FK_b577a45ba3422b2d8fb741f5095" FOREIGN KEY ("boardId") REFERENCES public.board(id) ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_b577a45ba3422b2d8fb741f5095" FOREIGN KEY ("board") REFERENCES public.board(id) ON DELETE CASCADE;
 
 
 --

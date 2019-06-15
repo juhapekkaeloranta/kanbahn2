@@ -1,6 +1,5 @@
-import { Column, ColumnsById } from '../../src-common/entity/Column'
+import { ColumnsById } from '../../src-common/entity/Column'
 import { arrayToByIdObject } from '../helpers'
-import { logger_info } from '../loggers';
 import { ReceiveState } from './common';
 
 type ColumnAction = ReceiveState

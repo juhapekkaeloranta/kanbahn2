@@ -41,7 +41,7 @@ VALUES
 (2, 'Secret Board 1', 2);
 
 --Lanes
-INSERT INTO lane ("id", "name", "boardId")
+INSERT INTO lane ("id", "name", "board")
 VALUES
 (1, 'Feature 1', 1);
 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { StoreState } from '../store/store';
 
 interface TaskContainerOwnProps {
-  id: string
+  id: number
 }
 
 interface TaskContainerStoreProps {
@@ -17,14 +17,14 @@ const TaskContainer = (props: TaskContainerProps) => {
     <TaskComponent
       key={props.id}
       id={props.id}
-      text={props.id} //TODO: text from store
+      text={props.text} //TODO: text from store
     />
   )
 }
 
-const mapStateToProps = (state: StoreState) => {
+const mapStateToProps = (state: StoreState, ownProps: TaskContainerOwnProps) => {
   return {
-    text: ''//TODO
+    text: state.tasks.byid[ownProps.id] ? state.tasks.byid[ownProps.id].title : ""
   }
 }
 

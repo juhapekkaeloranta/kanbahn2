@@ -2,7 +2,7 @@ export interface Task {
   id: number
   title: string
   sortindex: number
-  listid: number
+  list: number
 }
 
 export interface TaskById {

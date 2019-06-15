@@ -3,9 +3,9 @@ import TaskContainer from './TaskContainer';
 import './styles/common.css'
 
 interface ColumnComponentOwnProps {
-  id: string
+  id: number
   title: string
-  taskids: string[]
+  taskids: number[]
 }
 
 type ColumnComponentProps = ColumnComponentOwnProps

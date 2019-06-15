@@ -2,7 +2,7 @@ import React from 'react'
 import './styles/common.css';
 
 interface TaskComponentOwnProps {
-  id: string
+  id: number
   text: string
 }
 

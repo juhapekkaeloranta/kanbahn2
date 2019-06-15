@@ -2,8 +2,9 @@ import React from 'react';
 import LaneContainer from './LaneContainer';
 
 interface BoardComponentOwnProps {
-  id: string
-  laneids: string[]
+  id: number
+  name: string
+  laneids: number[]
 }
 
 type BoardComponentProps = BoardComponentOwnProps
@@ -11,7 +12,7 @@ type BoardComponentProps = BoardComponentOwnProps
 const BoardComponent = (props: BoardComponentProps) => {
   return (
     <div>
-      <p>This is a Board called: {props.id}</p>
+      <p>This is a Board called: {props.name}</p>
       {props.laneids.map(laneid =>
         <LaneContainer
           key={laneid}

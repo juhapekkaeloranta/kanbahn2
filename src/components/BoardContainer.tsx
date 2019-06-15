@@ -7,8 +7,9 @@ interface BoardContainerOwnProps {
 }
 
 interface BoardContainerStoreProps {
-  activeBoardId: string
-  laneids: string[]
+  activeBoardId: number
+  name: string
+  laneids: number[]
 }
 
 type BoardContainerProps = BoardContainerOwnProps & BoardContainerStoreProps
@@ -17,15 +18,22 @@ const BoardContainer = (props: BoardContainerProps) => {
   return (
     <BoardComponent 
       id={props.activeBoardId}
+      name={props.name}
       laneids={props.laneids}
     />
   )
 }
 
 const mapStateToProps = (state: StoreState) => {
+  const lanes = Object.values(state.lanes.byid)
+  console.log(lanes)
+  const activeBoard = state.ui.activeBoard
   return {
-    activeBoardId: '1', //TODO
-    laneids: ['1', '2'] //TODO
+    activeBoardId: activeBoard,
+    name: state.boards.byid[activeBoard] ? state.boards.byid[activeBoard].name : "",
+    laneids: lanes
+      .filter(lane => lane.board === activeBoard)
+      .map(lane => lane.id)
   }
 }
 

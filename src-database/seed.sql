@@ -32,25 +32,29 @@ INSERT INTO project_owners_user
 VALUES (2, '321');
 
 --Boards
-INSERT INTO board ("id", "name", "projectId")
+INSERT INTO board ("id", "name", "project")
 VALUES
 (1, 'Board 1', 1);
 
-INSERT INTO board ("id", "name", "projectId")
+INSERT INTO board ("id", "name", "project")
 VALUES
 (2, 'Secret Board 1', 2);
 
 --Lanes
 INSERT INTO lane ("id", "name", "board")
 VALUES
-(1, 'Feature 1', 1);
+(1, 'Feature 1', 1),
+(2, 'Feature 2', 1);
 
 --Lists
 INSERT INTO list ("id", "name", "lane")
 VALUES
 (1, 'Todo', 1),
 (2, 'In progress', 1),
-(3, 'Done', 1);
+(3, 'Done', 1),
+(4, 'Todo', 2),
+(5, 'In progress', 2),
+(6, 'Done', 2);
 
 --Tasks
 

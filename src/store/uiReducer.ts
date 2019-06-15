@@ -9,10 +9,12 @@ type UiAction =  SetActiveTask
 
 export interface UiState {
   activeTask: number
+  activeBoard: number
 }
 
 const initialState = {
-  activeTask: 0
+  activeTask: 0,
+  activeBoard: 1
 }
 
 const uiReducer = (state: UiState = initialState, action: UiAction) => {

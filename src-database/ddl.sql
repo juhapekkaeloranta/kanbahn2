@@ -49,7 +49,7 @@ CREATE SCHEMA public;
 CREATE TABLE public.board (
     id integer NOT NULL,
     name character varying NOT NULL,
-    "projectId" integer NOT NULL
+    project integer NOT NULL
 );
 
 
@@ -126,7 +126,7 @@ ALTER TABLE public.project OWNER TO kanbahnapp;
 --
 
 CREATE TABLE public.project_owners_user (
-    "projectId" integer NOT NULL,
+    "project" integer NOT NULL,
     "userGoogleId" character varying NOT NULL
 );
 
@@ -347,7 +347,7 @@ ALTER TABLE ONLY public.list
 --
 
 ALTER TABLE ONLY public.project_owners_user
-    ADD CONSTRAINT "PK_f109909e1074d447e3a14c8a236" PRIMARY KEY ("projectId", "userGoogleId");
+    ADD CONSTRAINT "PK_f109909e1074d447e3a14c8a236" PRIMARY KEY ("project", "userGoogleId");
 
 
 --
@@ -374,7 +374,7 @@ ALTER TABLE ONLY public.project_owners_user
 --
 
 ALTER TABLE ONLY public.board
-    ADD CONSTRAINT "FK_954fce22cf9a797afc6b1560c76" FOREIGN KEY ("projectId") REFERENCES public.project(id) ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_954fce22cf9a797afc6b1560c76" FOREIGN KEY ("project") REFERENCES public.project(id) ON DELETE CASCADE;
 
 
 --
@@ -392,7 +392,7 @@ ALTER TABLE ONLY public.lane
 --
 
 ALTER TABLE ONLY public.project_owners_user
-    ADD CONSTRAINT "FK_c1e89fe873b05fc876dc7066020" FOREIGN KEY ("projectId") REFERENCES public.project(id) ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_c1e89fe873b05fc876dc7066020" FOREIGN KEY ("project") REFERENCES public.project(id) ON DELETE CASCADE;
 
 
 --

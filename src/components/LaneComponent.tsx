@@ -4,7 +4,7 @@ import './styles/common.css'
 
 interface LaneOwnProps {
   title: string,
-  columnids: string[]
+  columnids: number[]
 }
 
 type LaneProps = LaneOwnProps

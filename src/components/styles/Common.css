@@ -1,8 +1,17 @@
 .bordered {
   border: solid;
   border-width: 1px;
+  border-color: rgb(207, 207, 207);
   margin: 5px;
   padding: 5px;
+}
+
+h1 {
+  color: rgb(53, 53, 53)
+}
+
+p {
+  color: rgb(53, 53, 53)
 }
 
 .hide-border {
@@ -16,6 +25,8 @@
 .topmenu {
   display: flex;
   justify-content: space-between;
+  background: linear-gradient(to left top, rgb(221, 221, 221), rgb(250, 250, 250));
+  margin-bottom: 8px;
 }
 
 .column {
@@ -65,4 +76,22 @@
   margin: 4px;
   width: 100%;
   min-width: 175px;
+}
+
+.taskStyling {
+  background: linear-gradient(to top left, rgb(255, 246, 196), rgb(252, 247, 221));
+  border: 0 solid rgb(211, 204, 163);
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
+}
+
+.columnStyling {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
+  margin: 4px;
+  background: linear-gradient(to left top, rgb(243, 243, 243), rgb(250, 250, 250));
+}
+
+.laneStyling {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
+  margin-bottom: calc(8px);
+  background: linear-gradient(to left top, rgb(221, 221, 221), rgb(250, 250, 250));
 }

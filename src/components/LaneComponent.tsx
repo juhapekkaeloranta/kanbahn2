@@ -11,7 +11,7 @@ type LaneProps = LaneOwnProps
 const LaneComponent = ( props: LaneProps ) => {
   const columns = props.children
   return (
-    <div className='lane bordered'>
+    <div className='lane laneStyling bordered hide-border'>
       <div className="laneHeader">
         <p>{props.title}</p>
       </div>

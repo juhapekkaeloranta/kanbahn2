@@ -16,10 +16,9 @@ interface LaneContainerStoreProps {
 type LaneContainerProps = LaneContainerOwnProps & LaneContainerStoreProps
 
 const LaneContainer = (props: LaneContainerProps) => {
-  console.log('lane', props)
   return (
     <LaneComponent
-      title={"Feature: " + props.name}
+      title={props.name}
     >
       {props.columnids.map(columnid =>
         <ColumnContainer

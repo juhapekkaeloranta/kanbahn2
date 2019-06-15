@@ -12,9 +12,9 @@ type ColumnComponentProps = ColumnComponentOwnProps
 const ColumnComponent = (props: ColumnComponentProps) => {
   const tasks = props.children
   return (
-    <div className='column bordered'>
+    <div className='column columnStyling bordered hide-border'>
       <div className='columnHeader'>
-        <p>Column: {props.title}</p>
+        <p>{props.title}</p>
       </div>
       <div className="taskContainerWrapper">
         {tasks}

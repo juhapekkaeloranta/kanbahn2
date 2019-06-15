@@ -10,7 +10,7 @@ type TopMenuProps = TopMenuStoreProps
 
 const TopMenu = (props: TopMenuProps) => {
   return (
-    <div className="topmenu bordered">
+    <div className="topmenu bordered hide-border">
       <div style={{ display: 'flex', flex: 1 }}>
         <p className="bordered">Menu</p>
         <p className="bordered">Board: {props.activeBoardName}</p>

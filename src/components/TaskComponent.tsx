@@ -10,7 +10,7 @@ type TaskComponentProps = TaskComponentOwnProps
 
 const TaskComponent = (props: TaskComponentProps) => {
   return (
-    <div className='task bordered'>
+    <div className='task taskStyling'>
       <p>{props.text}</p>
     </div>
   )
